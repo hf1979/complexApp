@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true hf1979/client-test npm test
 
 after_success:
-  - docker build -t hf1979/complex-client ./client
-  - docker build -t hf1979/complex-nginx ./nginx
-  - docker build -t hf1979/complex-server ./server
-  - docker build -t hf1979/complex-worker ./worker
+  - docker build -t w3devr/complex-client ./client
+  - docker build -t w3devr/complex-nginx ./nginx
+  - docker build -t w3devr/complex-server ./server
+  - docker build -t w3devr/complex-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
-  - docker push hf1979/complex-client
-  - docker push hf1979/complex-nginx
-  - docker push hf1979/complex-server
-  - docker push hf1979/complex-worker
+  - docker push w3devr/complex-client
+  - docker push w3devr/complex-nginx
+  - docker push w3devr/complex-server
+  - docker push w3devr/complex-worker
